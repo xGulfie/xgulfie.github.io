@@ -29,10 +29,6 @@
       <p><a href="images/refsheet.png">🖼&#xFE0F; Refsheet</a></p>
       <p>Here's where you can find me on the wide wide world of web:</p>
       <ul id="icons">
-        <li><a rel="me" class="icon big effect" href="https://yiff.life/@gulfie">
-          <img style="scale:1.4"  src="images/logos/mastodon.svg" title="Mastodon logo"/>
-          <span class="hover-label">Mastodon (NSFW 🔞)</span>
-        </a></li>
         <li><a class="icon big effect" href="https://github.com/xgulfie">
           <img src="images/logos/github.svg" title="Github logo"/>
           <span class="hover-label">Github</span>
@@ -49,6 +45,10 @@
           <img src="images/logos/ko-fi-round.png" style="width:40px;" title="Ko-fi logo"/>
           <span class="hover-label">Ko-fi Shop</span>
         </a></li>
+        <li><a rel="me" class="icon big effect nsfw" href="https://yiff.life/@gulfie">
+          <img style="scale:1.4"  src="images/logos/mastodon.svg" title="Mastodon logo"/>
+          <span class="hover-label">Mastodon (NSFW 🔞)</span>
+        </a></li>
 <!--         <li><a href="https://cloacaclub.com">
           <img class="icon big effect" src="images/logos/cloacaclub.svg" title="Cloaca Club"></img>
         </a></li> -->
@@ -56,16 +56,21 @@
     </div>
   </main>
 
+
 <script type="text/javascript">
-  // let anchors = document.querySelectorAll("#icons>li>a");
-  // for(let i = 0; i < anchors.length; i ++){
-  //   let a = anchors[i];
-  //   let title = a.children[0].title;
-  //   let label = document.createElement('span')
-  //   label.className = "hover-label";
-  //   label.innerHTML=title;
-  //   a.appendChild(label)
-  // }
+  // confirm() navigating to nsfw places
+  let nsfws = document.querySelectorAll(".nsfw");
+  for(let i = 0; i < nsfws.length; i ++){
+    let a = nsfws[i];
+    let oldhref =a.getAttribute('href')
+    a.setAttribute("href","#");
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      if (confirm("This page has lots of weird adult content, you must be 18+ to continue. Are you 18+ AND sure you want to see this?")){
+        window.location.href = oldhref
+      }
+    })
+  }
 </script>
   
 </body>
