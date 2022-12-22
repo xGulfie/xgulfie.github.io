@@ -113,10 +113,12 @@ footer {
 }
 .effect{
   transform:scale(1.0);
-  transition:all 0.05s ease-out;
+  filter: drop-shadow(0 0 0 rgba(0,0,0,0));
+  transition:all 0.08s ease-out;
 }
 .effect:hover{
-  transform:scale(1.1);
+  transform:scale(1.2);
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1));
 }
 
 .fadein{
@@ -144,3 +146,35 @@ footer {
       transform: translateY(0rem);
    } 
 } 
+
+.hover-label{
+  display:block;
+  position:absolute;
+  opacity:0;
+  transition: all 0.08s ease-out;
+  background: #353b5f;
+  color: #fbf8eb;
+  text-align:center;
+  border-radius:.3rem;
+  padding:.3rem;
+  margin-left:0;
+  width:80px;
+  margin-left:-20px;
+  bottom:47px;
+  left:0;
+  font-size:15px;
+  pointer-events:none;
+}
+.hover-label::after {
+  content: " ";
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #353b5f transparent transparent transparent;
+}
+a:hover .hover-label{
+  opacity:1;
+}
