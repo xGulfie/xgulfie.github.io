@@ -178,3 +178,11 @@ footer {
 a:hover .hover-label{
   opacity:1;
 }
+.nsfw::after{
+  content:"🔞";
+  font-size:1.1rem;
+  text-underline:none;
+  position:absolute;
+  bottom:0;
+  right:0;
+}
