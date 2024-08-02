@@ -52,7 +52,7 @@ body {
 
 .logo, main {
   margin: 1rem;
-  overflow: hidden;
+  /* overflow: hidden; */
   padding: 0;
   box-shadow: 0 0.2rem 1rem 0 rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
@@ -85,6 +85,8 @@ li {
 }
 
 .card-header {
+  border-top-right-radius: inherit;
+  border-top-left-radius: inherit;
   margin: 0;
   padding: 0 1.5rem;
   background: #353b5f;
@@ -164,6 +166,7 @@ footer {
   left:0;
   font-size:15px;
   pointer-events:none;
+  z-index:1000;
 }
 .hover-label::after {
   content: " ";

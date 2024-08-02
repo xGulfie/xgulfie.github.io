@@ -8,15 +8,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gulfie Online</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="images/0b63c7926a3e8a2f8cea45976a3209a24dbe91430c5c625c9ac9efbd80bbf1397716bd2bef37fadb782eeed2c1e0cb590e17a0aad4d5c4ec6d18b5b272cc123f.png">
+  <link rel="icon" href="images/talontide_avatar.png">
   <meta property="og:url" content="https://gulfie.online/" />
   <meta property="og:title" content="Gulfie Online" />
-  <meta property="og:description" content="This is Gulfie's homepage, where you can find me on the web, art gallery, and more!" />
-  <meta property="og:image" content="https://gulfie.online/images/0b63c7926a3e8a2f8cea45976a3209a24dbe91430c5c625c9ac9efbd80bbf1397716bd2bef37fadb782eeed2c1e0cb590e17a0aad4d5c4ec6d18b5b272cc123f.png" />
+  <meta property="og:description" content="This is Gulfie's homepage, where you can find me on the web, and more!" />
+  <meta property="og:image" content="https://gulfie.online/images/talontide_avatar.png" />
+  <meta name="robots" content="noai, noimageai" />
 </head>
 <body>
 <div class="logo effect translatein">
-  <img src="images/0b63c7926a3e8a2f8cea45976a3209a24dbe91430c5c625c9ac9efbd80bbf1397716bd2bef37fadb782eeed2c1e0cb590e17a0aad4d5c4ec6d18b5b272cc123f.png" title="A cute puffin avatar. It's me. This is what I look like. Art by TalonTide."></img>
+  <img src="images/talontide_avatar.png" title="A cute puffin avatar. It's me. This is what I look like. Art by TalonTide."></img>
 </div>  
 
 <main class="">
@@ -45,7 +46,7 @@
         </a></li>
         <li><a rel="me" class="icon big effect nsfw" href="https://yiff.life/@gulfie">
           <img style="scale:1.4"  src="images/logos/mastodon.svg" title="Mastodon logo"/>
-          <span class="hover-label">Mastodon (NSFW 🔞)</span>
+          <span class="hover-label">Mastodon (ADULTS ONLY)</span>
         </a></li>
 <!--         <li><a href="https://cloacaclub.com">
           <img class="icon big effect" src="images/logos/cloacaclub.svg" title="Cloaca Club"></img>
@@ -56,16 +57,29 @@
 
 
 <script type="text/javascript">
+  if (localStorage.getItem("goaway") == "1"){
+    window.location.href="https://google.com";
+  }
   // confirm() navigating to nsfw places
-  let nsfws = document.querySelectorAll(".nsfw");
-  for(let i = 0; i < nsfws.length; i ++){
-    let a = nsfws[i];
-    let oldhref =a.getAttribute('href')
+  var nsfws = document.querySelectorAll(".nsfw");
+  for(var i = 0; i < nsfws.length; i ++){
+    var a = nsfws[i];
+    var oldhref =a.getAttribute('href')
     a.setAttribute("href","#");
     a.addEventListener('click',function(e){
       e.preventDefault();
-      if (confirm("This page has lots of weird adult content, you must be 18+ to continue. Are you 18+ AND sure you want to see this?")){
-        window.location.href = oldhref
+      var msg = "This page has lots of weird adult content, you must be 18+ to continue. Are you 18+ AND sure you want to see this? \n\nEnter your age if you really want to continue\n"
+      var enteredValue = prompt(msg);
+      if (enteredValue && !Number.isNaN(Number(enteredValue))){
+        if ( Number(enteredValue) >= 18){
+          window.location.href = oldhref
+        } else {
+          // someone put in a number under 18
+          localStorage.setItem("goaway","1")
+          window.location.href = "https://google.com"
+        }
+      } else {
+        // cancelled / bad entry / empty string
       }
     })
   }
