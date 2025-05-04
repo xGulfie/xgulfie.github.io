@@ -15,7 +15,6 @@ jobs:
     - uses: actions/checkout@v4
     - name: pick a random MOTD
       run: |
-        chmod +x ./make_motd.sh
         ./make-motd.sh
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
