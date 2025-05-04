@@ -1,0 +1,6 @@
+to use the motd: `curl -L gulfie.online/motd`
+
+(ubuntu setup for showing on ssh login:)
+```
+echo "curl --max-time 1 --silent --fail -L gulfie.online/motd && echo -e '\033[0m'" > /etc/update-motd.d/55-gulfie-motd && chmod +x /etc/update-motd.d/55-gulfie-motd
+```
