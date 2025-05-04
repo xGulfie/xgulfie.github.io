@@ -1,7 +1,8 @@
 # File: .github/workflows/refresh.yml
-name: Refresh
+name: Periodic Rebuild
 
 on:
+  workflow_dispatch:
   schedule:
     - cron:  '0 3 * * *' # Runs every day at 3am
 
