@@ -4,7 +4,7 @@ on:
   push:
   workflow_dispatch:
   schedule:
-    - cron:  '0 3 * * *' # Runs every day at 3am
+    - cron:  '23 2 * * *' # Runs every day at 3am
 permissions:
   pages: write
   id-token: write
