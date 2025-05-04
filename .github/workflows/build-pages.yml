@@ -15,11 +15,8 @@ jobs:
     - uses: actions/checkout@v4
     - name: pick a random MOTD
       run: |
-        export motd="$(ls motd_glyphs | shuf | head -n 1)"
-        export charactername=$(echo "$motd" | sed 's/_.*//' | sed 's/.*/\u&/')
-        export msg="$(shuf motd_texts.txt | head -n 1)"
-        cp motd_glyphs/"$motd" motd
-        echo -e "\n$charactername's message of the day: \"$msg\"" >> motd
+        chmod +x ./make_motd.sh
+        ./make-motd.sh
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
