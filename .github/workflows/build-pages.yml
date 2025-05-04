@@ -14,8 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: pick a random MOTD
-      run: |
-        ./make-motd.sh
+      run: bash make-motd.sh
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
