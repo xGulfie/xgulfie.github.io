@@ -101,4 +101,4 @@ User-agent: YaK
 User-agent: YandexAdditional
 User-agent: YandexAdditionalBot
 User-agent: YouBot
-Disallow: /' | head -n 100000000 > robots.txt
+Disallow: /' | head -n 10000000 > robots.txt
