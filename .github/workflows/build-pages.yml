@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: pick a random MOTD
-      run: bash make-motd.sh
+    - name: make robots txt
+      run: bash make-robots.sh
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
